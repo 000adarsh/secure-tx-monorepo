@@ -23,9 +23,6 @@ importers:
       '@fastify/cors':
         specifier: ^10.0.2
         version: 10.1.0
-      '@repo/crypto':
-        specifier: workspace:*
-        version: link:../../packages/crypto
       fastify:
         specifier: ^5.2.1
         version: 5.7.4
