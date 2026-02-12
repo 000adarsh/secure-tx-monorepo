@@ -27,3 +27,16 @@ export async function buildApp() {
 
   return app;
 }
+
+// Vercel serverless handler
+let app: Awaited<ReturnType<typeof buildApp>> | null = null;
+
+export default async function handler(req: any, res: any) {
+  if (!app) {
+    app = await buildApp();
+    await app.ready();
+  }
+  
+  // Forward the request to Fastify
+  app.server.emit('request', req, res);
+}
