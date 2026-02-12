@@ -21,16 +21,6 @@ function deriveKey(partyId: string): Buffer {
   return createHash('sha256').update(partyId).digest();
 }
 
-/** Shape returned after encryption (before base64 encoding). */
-interface EncryptedParts {
-  /** Initialisation vector (random per encryption). */
-  iv: Buffer;
-  /** GCM authentication tag. */
-  authTag: Buffer;
-  /** The cipher-text itself. */
-  cipherText: Buffer;
-}
-
 /**
  * Encrypt a JSON-serialisable object.
  *
