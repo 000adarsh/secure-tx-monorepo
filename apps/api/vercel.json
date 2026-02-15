@@ -2,14 +2,20 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/app.ts",
-      "use": "@vercel/node"
+      "src": "dist/app.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "../../packages/crypto/dist/**",
+          "../../packages/crypto/package.json"
+        ]
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "src/app.ts"
+      "dest": "dist/app.js"
     }
   ]
 }
