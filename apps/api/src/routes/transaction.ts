@@ -8,7 +8,7 @@
 
 import { randomUUID } from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
-import { encrypt, decrypt } from '../crypto.js';
+import { encrypt, decrypt } from '@repo/crypto';
 import { save, find } from '../store.js';
 import type {
   EncryptRequestBody,
