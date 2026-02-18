@@ -167,6 +167,7 @@ export default function Home() {
             <div className={styles.formGroup}>
               <label>Party ID</label>
               <input
+                suppressHydrationWarning
                 type="text"
                 placeholder="e.g. party_123"
                 value={state.partyId}
@@ -184,6 +185,7 @@ export default function Home() {
             <div className={styles.formGroup}>
               <label>JSON Payload</label>
               <textarea
+                suppressHydrationWarning
                 placeholder='e.g. { "amount": 100, "currency": "AED" }'
                 rows={6}
                 value={state.payload}
@@ -200,6 +202,7 @@ export default function Home() {
 
             <div className={styles.buttonGroup}>
               <button
+                suppressHydrationWarning
                 disabled={!isReady || state.loading}
                 onClick={handleEncryptAndSave}
                 className={`${styles.button} ${styles.primaryBtn}`}
@@ -207,6 +210,7 @@ export default function Home() {
                 {state.loading ? '⏳ Encrypting...' : '🔒 Encrypt & Save'}
               </button>
               <button
+                suppressHydrationWarning
                 disabled={!state.transactionId || state.loading}
                 onClick={handleFetch}
                 className={`${styles.button} ${styles.secondaryBtn}`}
@@ -214,6 +218,7 @@ export default function Home() {
                 📥 Fetch
               </button>
               <button
+                suppressHydrationWarning
                 disabled={!state.transactionId || state.loading}
                 onClick={handleDecrypt}
                 className={`${styles.button} ${styles.secondaryBtn}`}
@@ -230,21 +235,21 @@ export default function Home() {
             {state.transactionId && (
               <div className={styles.formGroup}>
                 <label>Transaction ID</label>
-                <input type="text" readOnly value={state.transactionId} className={styles.textInput} />
+                <input suppressHydrationWarning type="text" readOnly value={state.transactionId} className={styles.textInput} />
               </div>
             )}
 
             {state.encrypted && (
               <div className={styles.formGroup}>
                 <label>Encrypted</label>
-                <textarea readOnly rows={4} value={state.encrypted} className={styles.textArea} />
+                <textarea suppressHydrationWarning readOnly rows={4} value={state.encrypted} className={styles.textArea} />
               </div>
             )}
 
             {state.decrypted && (
               <div className={styles.formGroup}>
                 <label>Decrypted</label>
-                <textarea readOnly rows={4} value={state.decrypted} className={styles.textArea} />
+                <textarea suppressHydrationWarning readOnly rows={4} value={state.decrypted} className={styles.textArea} />
               </div>
             )}
 

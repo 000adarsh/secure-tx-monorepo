@@ -21,9 +21,13 @@ export async function buildApp() {
 
   // Health-check endpoint.
   app.get('/health', async () => ({ status: 'ok' }));
+  app.get('/api/health', async () => ({ status: 'ok' }));
 
   // Transaction routes.
+  // Register both root and /api-prefixed routes to support local dev and
+  // Vercel route prefixing behavior.
   await app.register(transactionRoutes);
+  await app.register(transactionRoutes, { prefix: '/api' });
 
   return app;
 }

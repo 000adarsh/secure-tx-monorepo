@@ -210,6 +210,25 @@ pnpm format       # Format code (Prettier)
 
 ## 🌍 Vercel Deployment
 
+For monorepo deployment setup and `NOT_FOUND` troubleshooting, use:
+
+- [VERCEL_DEPLOYMENT_CHECKLIST.md](./VERCEL_DEPLOYMENT_CHECKLIST.md)
+
+### Dashboard Click Path (Recommended)
+
+For each Vercel project, configure from dashboard:
+
+1. Open **Project → Settings → General**
+2. Set **Root Directory**
+  - Web project: `apps/web`
+  - API project: `apps/api`
+3. Open **Project → Settings → Build & Development Settings**
+4. Clear any old overrides such as `cd ../.. && pnpm install`
+5. Open **Project → Settings → Environment Variables**
+  - Web: `NEXT_PUBLIC_API_URL=https://<your-api-domain>`
+  - API: `CORS_ORIGIN=https://<your-web-domain>`
+6. Redeploy both projects from the latest commit
+
 ### Deploy Frontend
 
 ```bash
