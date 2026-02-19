@@ -3,7 +3,7 @@ services:
     name: secure-tx-api
     rootDir: apps/api
     runtime: node
-    buildCommand: pnpm install --frozen-lockfile && cd ../.. && pnpm run build --filter=@repo/api
+    buildCommand: pnpm install --frozen-lockfile && pnpm run build:render
     startCommand: node dist/server.js
     envVars:
       - key: PORT

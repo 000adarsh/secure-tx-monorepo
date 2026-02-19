@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "build:render": "pnpm --filter @repo/crypto build && pnpm --filter @repo/api build",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "check:vercel": "node scripts/vercel-preflight.mjs"
