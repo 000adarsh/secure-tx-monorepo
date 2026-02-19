@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "installCommand": "cd ../.. && pnpm install --frozen-lockfile",
-  "buildCommand": "cd ../.. && pnpm --filter=@repo/crypto build",
+  "buildCommand": "cd ../.. && pnpm run build --filter=@repo/api",
   "version": 2,
   "builds": [
     {
